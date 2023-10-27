@@ -10,7 +10,8 @@ if (empty($_SESSION['id'])) {
     $sql->execute();
     $fetch = $sql->fetch();
     $user_name = $fetch['username'];
-
+    /**
+     * This Code Work Only if your are using Curl with correct Username,Sender Id and ApiKey
     if (isset($_POST['submit'])) {
         // $api_url = "https://api.africastalking.com/version1/messaging"; 
         // $sender_id = "MORE-INFO"; 
@@ -72,6 +73,8 @@ if (empty($_SESSION['id'])) {
             fclose($logHandle);
         }
     }
+     */
+
 
     include("inc/header.php");
     include("inc/sidebar.php");
@@ -84,13 +87,33 @@ if (empty($_SESSION['id'])) {
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">Send User SMS</li>
                 </ol>
+
+                <?php
+                if (isset($_POST['submit'])) {
+                    require_once 'sms.php';
+                    $livesms = new SMS();
+                    @$phone = $_POST['phone'];
+                    @$message = $_POST['message'];
+                    @$result = $livesms->send($phone, $message);
+                }
+                if (@$result['success'] && !empty($result['message'])) {
+                    echo '<div class="alert alert-primary" role="alert">
+            ' . @$result['message'] . '
+            </div>';
+                } elseif (!@$result['success'] && !empty($result['message'])) {
+                    echo '<div class="alert alert-danger" role="alert">
+            ' . @$result['message'] . '
+            </div>';
+                }
+                ?>
+
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
                         More Classifieds Send SMS
                     </div>
                     <div class="card-body">
-                        <form class="" method="POST" action="#">
+                        <form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
@@ -118,10 +141,19 @@ if (empty($_SESSION['id'])) {
                                     </div>
                                 </div>
                             </div>
+                            <!-- <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number">
+                                     <label for="phone">Phone</label>
+                                    </div>
+                                </div>
+                            </div> -->
+
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <textarea class="form-control" type="text" cols="10" id="message" name="message" placeholder="Message:" required>
+                                        <textarea class="form-control" type="text" cols="10" id="message" name="message" placeholder="Enter your Message:" required>
                                             </textarea>
                                         <label class="form-check-label" for="to">Message:</label>
                                     </div>
