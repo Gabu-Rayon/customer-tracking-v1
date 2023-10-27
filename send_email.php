@@ -48,7 +48,9 @@ $mail->send();
 echo "Mail Sent";
 // Send the email
 if ($mail->send()) {
-    echo 'Email sent successfully!';
+    echo "<script>alert('Email sent successfully!')</script>";
+    header("Location: bulky_sms.php");
+    exit;
 } else {
     echo 'Email could not be sent. Mailer Error: ' . $mail->ErrorInfo;
     $errorLog = 'log-files/email_error_log.php';
