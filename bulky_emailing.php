@@ -29,7 +29,6 @@ if (empty($_SESSION['id'])) {
                     </div>
                     <div class="card-body">
                         <form method="post" action="send_email.php">
-
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">

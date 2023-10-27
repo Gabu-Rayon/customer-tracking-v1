@@ -114,41 +114,41 @@ if (empty($_SESSION['id'])) {
                     </div>
                     <div class="card-body">
                         <form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
-                            <div class="row mb-3">
+                            <!-- <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
                                         <select class="form-select" name="phone" id="phone" required>
                                             <option value="" disabled selected>Select a phone</option>
                                             <?php
-                                            $twoHoursAgo = date("Y-m-d H:i:s", strtotime('-2 hours'));
-                                            $sql = $pdo->prepare("SELECT phone,name FROM moreusers WHERE created_at <= :twoHoursAgo");
-                                            $sql->bindParam(':twoHoursAgo', $twoHoursAgo);
-                                            $sql->execute();
-                                            $phoneUserArray = array();
+                                            // $twoHoursAgo = date("Y-m-d H:i:s", strtotime('-2 hours'));
+                                            // $sql = $pdo->prepare("SELECT phone,name FROM moreusers WHERE created_at <= :twoHoursAgo");
+                                            // $sql->bindParam(':twoHoursAgo', $twoHoursAgo);
+                                            // $sql->execute();
+                                            // $phoneUserArray = array();
 
-                                            while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
-                                                $phone = $row['phone'];
-                                                $name = $row['name'];
-                                                $phoneUserArray[$phone] = $name;
-                                            }
+                                            // while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
+                                            //     $phone = $row['phone'];
+                                            //     $name = $row['name'];
+                                            //     $phoneUserArray[$phone] = $name;
+                                            // }
 
-                                            foreach ($phoneUserArray as $phone => $name) {
-                                                echo '<option value="' . $phone . '">' . $phone . ' - ' . $name . '</option>';
-                                            }
+                                            // foreach ($phoneUserArray as $phone => $name) {
+                                            //     echo '<option value="' . $phone . '">' . $phone . ' - ' . $name . '</option>';
+                                            // }
                                             ?>
                                         </select>
                                         <label class="form-check-label" for="phone">Phone:</label>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- <div class="row mb-3">
+                            </div>-->
+                            <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
                                         <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number">
                                      <label for="phone">Phone</label>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
 
                             <div class="row mb-3">
                                 <div class="col-md-6">
