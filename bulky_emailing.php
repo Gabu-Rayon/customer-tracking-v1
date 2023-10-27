@@ -29,10 +29,19 @@ if (empty($_SESSION['id'])) {
                     </div>
                     <div class="card-body">
                         <form method="post" action="send_email.php">
+
                             <div class="row mb-3">
-                                <!-- <div class="col-md-6">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input class="form-control" type="text" name="name" id="name" placeholder="Name" required />
+                                        <label class="form-check-label" for="subject">Name:</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="row mb-3">
+                                <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <select class="form-select" name="to" id="to" required>
+                                        <select class="form-select" name="emil" id="email" required>
                                             <option value="" disabled selected>Select an email</option>
                                             <?php
                                             // $twoHoursAgo = date("Y-m-d H:i:s", strtotime('-2 hours'));
@@ -48,13 +57,17 @@ if (empty($_SESSION['id'])) {
                                         </select>
                                          <label class="form-check-label" for="to">To:</label>
                                     </div>
-                                </div> -->
+                                </div>
+                            </div> -->
+                            <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input class="form-control" type="email" name="to" id="to" placeholder="Email Address" required />
-                                        <label class="form-check-label" for="subject">To:</label>
+                                        <input class="form-control" type="email" name="email" id="email" placeholder="Email Address" required />
+                                        <label class="form-check-label" for="subject">Email:</label>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input class="form-control" type="text" name="subject" id="subject" placeholder="Suject" required />
@@ -62,6 +75,7 @@ if (empty($_SESSION['id'])) {
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
