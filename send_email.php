@@ -33,7 +33,7 @@ $mail->Password = 'TbEKED$81t{d';
 
 
 // Sender information
-$mail->setFrom($email, $to);
+$mail->setFrom($email, $name);
 
 //Receipt information
 $mail->addAddress("gibson@more.co.ke","Gibson");
@@ -45,14 +45,14 @@ $mail->Body = $message;
 
 $mail->send();
 
-echo "Mail Sent"
+echo "Mail Sent";
 // Send the email
-// if ($mail->send()) {
-//     echo 'Email sent successfully!';
-// } else {
-//     echo 'Email could not be sent. Mailer Error: ' . $mail->ErrorInfo;
-//     $errorLog = 'log-files/email_error_log.php';
-//     $logMessage = '[' . date('Y-m-d H:i:s') . '] ' . $mail->ErrorInfo . "\n";
-//     error_log($logMessage, 3, $errorLog); 
-// }
+if ($mail->send()) {
+    echo 'Email sent successfully!';
+} else {
+    echo 'Email could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+    $errorLog = 'log-files/email_error_log.php';
+    $logMessage = '[' . date('Y-m-d H:i:s') . '] ' . $mail->ErrorInfo . "\n";
+    error_log($logMessage, 3, $errorLog); 
+}
 ?>
