@@ -28,7 +28,7 @@ if (empty($_SESSION['id'])) {
                         More Classifieds Send Mail
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="send_email.php">
+                        <form method="post" action="send_email.php">
                             <div class="row mb-3">
                                 <!-- <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
