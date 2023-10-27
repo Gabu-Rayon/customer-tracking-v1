@@ -1,5 +1,16 @@
 <?php
 require_once 'config.php';
+require 'vendor/autoload.php';
+
+
+use Monolog\Level;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+$logger = new Logger('login_attempts');
+$logger->pushHandler(new StreamHandler('log-files/login_attempts.log', Level::Warning));
+
+require_once 'config.php';
 
 $error = array();
 $res = array();
@@ -38,6 +49,11 @@ if (count($row) > 0) {
     $_SESSION['id'] = $row[0]['id'];
     $_SESSION['username'] = $row[0]['username'];
     $_SESSION['email'] = $_POST['email'];
+
+    // Log the successful login attempt
+    $logger->info('Successful login attempt for user: ' . $_POST['email']);
+
+
     $resp['redirect'] = "index.php";
     $resp['status'] = true;
     echo json_encode($resp);
@@ -46,6 +62,9 @@ if (count($row) > 0) {
     $error['email'] = "Email does not match";
     $resp['msg'] = $error;
     $resp['status'] = false;
+
+    // Log the failed login attempt
+    $logger->warning('Failed login attempt for user: ' . $_POST['email']);
     echo json_encode($resp);
     exit;
 }

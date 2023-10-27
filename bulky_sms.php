@@ -106,14 +106,13 @@ if (empty($_SESSION['id'])) {
             </div>';
                 }
                 ?>
-
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
                         More Classifieds Send SMS
                     </div>
                     <div class="card-body">
-                        <form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
+                        <form class="form" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                             <!-- <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
@@ -145,7 +144,7 @@ if (empty($_SESSION['id'])) {
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
                                         <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number">
-                                     <label for="phone">Phone</label>
+                                        <label for="phone">Phone</label>
                                     </div>
                                 </div>
                             </div>
@@ -166,8 +165,7 @@ if (empty($_SESSION['id'])) {
                     </div>
                 </div>
             </div>
-    </div>
-    </main>
-<?php
+        </main>
+    <?php
     include("inc/footer.php");
 }
