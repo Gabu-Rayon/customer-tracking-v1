@@ -19,25 +19,20 @@ $stmt->execute();
 $inactiveUsers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-$smsApiKey = 'da0fcf13aed9eb509cd47c9c52f6969a909f435638a1dcd2289561aa914ee28a';
+$smsApiKey = '';
 $apiUrl = 'https://api.sms-service-provider.com/send-sms';
-$apiUsername = 'ASE1001';  
-$apiPassword = 'your-api-password'; 
-$senderId = 'ASE.AFRICA';
+$apiUsername = '';  
+$apiPassword = ''; 
+$senderId = '';
 
 
-$emailApiKey = 'da0fcf13aed9eb509cd47c9c52f6969a909f435638a1dcd2289561aa914ee28a';
+$emailApiKey = '';
 $emailApiEndpoint = 'https://api.email-service-provider.com/send-email';
-$emailUsername = 'gibson@more.co.ke'; 
-$emailPassword = 'your-email-password';  
-$smtpHost = 'mail.more.co.ke'; 
+$emailUsername = ''; 
+$emailPassword = '';  
+$smtpHost = ''; 
 $smtpPort = 465;  
-/**
-Incoming Server:	mail.more.co.ke
-IMAP Port: 993 POP3 Port: 995
-Outgoing Server:	mail.more.co.ke
-SMTP Port: 465
-*/
+
 foreach ($inactiveUsers as $user) {
     $userId = $user['id'];
     $userEmail = $user['email'];
