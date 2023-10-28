@@ -1,6 +1,7 @@
 <?php
-
+/*****This files run only in the server for cron Jobs when User sign up and does not do the listing within 2 hours they are sent a  SMS */
 require_once("config.php");
+
 
 
 // Calculate the timestamp for 2 hours ago
@@ -21,16 +22,17 @@ foreach ($newUsers as $user) {
     $baseurl = "https://api.africastalking.com/sms/send";
     $ch = curl_init($baseurl);
     $data = array(
-        "username" => "ASE1001",
+        "username" => "",
         "to" => $user['phone'],
         "message" => $message,
+        "from" =>""
     );
     $payload = json_encode($data);
 
     curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'Content-Type: application/json',
-        'Api-Key: da0fcf13aed9eb509cd47c9c52f6969a909f435638a1dcd2289561aa914ee28a'
+        'Api-Key: '
     ));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $result = json_decode(curl_exec($ch), true);
@@ -44,7 +46,7 @@ foreach ($newUsers as $user) {
 $pdo = null;
 
     //ErroR lOG File FOR CURL
-    $logFile = 'log.php';
+    $logFile = 'log-files/cron-job-log.php';
     $logHandle = fopen($logFile, 'a');
     if ($logHandle) {
         $logEntry = date('Y-m-d H:i:s') . ' - ';
