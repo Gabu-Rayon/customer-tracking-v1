@@ -1,4 +1,4 @@
 <?php
-   define('USERNAME', 'bulkysms');
+   define('USERNAME', '');
    define('APIKEY', ''); 
    define('SENDERID','');
