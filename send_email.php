@@ -15,21 +15,16 @@ use PHPMailer\PHPMailer\SMTP;
 $mail = new PHPMailer(true);
 
 $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-/**
-Incoming Server:	mail.more.co.ke
-IMAP Port: 993 POP3 Port: 995
-Outgoing Server:	mail.more.co.ke
-SMTP Port: 465
-*/
+
 $mail->isSMTP();
 $mail->SMTPAuth = true;
 
-$mail->Host = 'mail.more.co.ke';
+$mail->Host = '';
 $mail->SMTPSecure = PHPMAILER::ENCRYPTION_STARTTLS; // and port 587 is (tls)
 $mail->Port = 465; 
 
-$mail->Username = 'more2023'; 
-$mail->Password = 'TbEKED$81t{d'; 
+$mail->Username = ''; 
+$mail->Password = ''; 
 
 
 // Sender information
