@@ -1,5 +1,7 @@
 <?php
-/*****This files run only in the server for cron Jobs when User sign up and does not do the listing within 2 hours they are sent a  SMS */
+/*****
+ * Cron Job File
+ * This files run only in the server for cron Jobs when User sign up and does not do the listing within 2 hours they are sent a  SMS */
 require_once("config.php");
 
 
